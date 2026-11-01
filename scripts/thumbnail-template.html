@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SKINMATE AI YouTube Thumbnail</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    body {
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      background: #000000;
+      color: #FFFFFF;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 50px 65px;
+    }
+
+    /* Ambient Background Glows */
+    .glow-emerald {
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.22) 0%, transparent 70%);
+      top: -100px;
+      left: -100px;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .glow-cyan {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, transparent 70%);
+      bottom: -150px;
+      right: 150px;
+      filter: blur(90px);
+      pointer-events: none;
+    }
+
+    /* Left Column Content */
+    .left-col {
+      width: 620px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      z-index: 10;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-container {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      padding: 6px;
+    }
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ai-badge {
+      background: #16A34A;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .hackathon-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1.5px solid rgba(34, 197, 94, 0.4);
+      color: #4ADE80;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    .main-headline {
+      font-size: 66px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #4ADE80 0%, #22C55E 50%, #15803D 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-style: italic;
+      font-family: Georgia, serif;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #E2E8F0;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .feature-pill {
+      background: #111418;
+      border: 1px solid #27272A;
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .callout-bar {
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 22px;
+      border-radius: 16px;
+      background: #18181B;
+      border: 1.5px solid #3F3F46;
+      width: fit-content;
+    }
+    .red-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 0 0 12px #EF4444;
+    }
+    .callout-text {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+
+    /* Right Column Showcase Visual */
+    .right-col {
+      width: 500px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .mockup-card {
+      width: 440px;
+      height: 540px;
+      border-radius: 36px;
+      background: #0A0A0A;
+      border: 2px solid #27272A;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 35px -5px rgba(34, 197, 94, 0.35);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+    }
+
+    .scanner-portrait {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.88;
+    }
+
+    /* Glowing Scanning Target Oval */
+    .scan-reticle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 250px;
+      height: 330px;
+      border-radius: 50%;
+      border: 3.5px solid #22C55E;
+      box-shadow: 0 0 35px rgba(34, 197, 94, 0.7), inset 0 0 35px rgba(34, 197, 94, 0.4);
+      pointer-events: none;
+    }
+
+    /* Top HUD Badge */
+    .hud-top-badge {
+      position: relative;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 12px 18px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: fit-content;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
+    .score-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #15803D;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: #FFFFFF;
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+    }
+    .hud-text-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+    .hud-text-sub {
+      font-size: 11px;
+      color: #A1A1AA;
+    }
+
+    /* Floating Diagnostic Chips */
+    .chip-pore {
+      position: absolute;
+      top: 200px;
+      right: 18px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(34, 197, 94, 0.5);
+      padding: 8px 14px;
+      border-radius: 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #4ADE80;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    }
+    .chip-barrier {
+      position: absolute;
+      top: 280px;
+      left: 18px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(59, 130, 246, 0.5);
+      padding: 8px 14px;
+      border-radius: 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #60A5FA;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    }
+
+    /* Bottom Regimen Solved Bar */
+    .hud-bottom-bar {
+      position: relative;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(14px);
+      border: 1.5px solid rgba(34, 197, 94, 0.4);
+      padding: 14px 20px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    }
+    .bar-tag {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #4ADE80;
+    }
+    .bar-price {
+      font-size: 18px;
+      font-weight: 900;
+      color: #FFFFFF;
+    }
+    .bar-desc {
+      font-size: 11px;
+      color: #A1A1AA;
+    }
+    .check-badge {
+      background: #16A34A;
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-emerald"></div>
+  <div class="glow-cyan"></div>
+
+  <!-- Left Column Content -->
+  <div class="left-col">
+    <!-- Brand row -->
+    <div class="brand-row">
+      <div class="logo-container">
+        <img src="skinmate-logo.png" class="logo-img" alt="Logo">
+      </div>
+      <div class="brand-title">
+        <span>SKINMATE</span>
+        <span class="ai-badge">AI</span>
+      </div>
+    </div>
+
+    <!-- Hackathon tag -->
+    <div class="hackathon-pill">
+      ✨ YouCam Skin AI Hackathon • Perfect Corp
+    </div>
+
+    <!-- Main Headline -->
+    <div class="main-headline">
+      AI Skincare <br>
+      <span class="gradient-text">Intelligence.</span>
+    </div>
+
+    <!-- Subtitle -->
+    <p class="subtitle">
+      Clinical facial computer vision meets personalized, dermatologist-safe shopping strictly under budget.
+    </p>
+
+    <!-- Key Feature Badges -->
+    <div class="feature-grid">
+      <div class="feature-pill">
+        <span>🔬</span> 16-Metric Facial Scan
+      </div>
+      <div class="feature-pill">
+        <span>🛡️</span> Ingredient Conflict Guard
+      </div>
+      <div class="feature-pill">
+        <span>💰</span> ₹1,500 Budget Optimizer
+      </div>
+      <div class="feature-pill">
+        <span>💬</span> Groq AI Concierge
+      </div>
+    </div>
+
+    <!-- Callout bar -->
+    <div class="callout-bar">
+      <div class="red-dot"></div>
+      <span class="callout-text">Full Live Project Walkthrough Demo</span>
+    </div>
+  </div>
+
+  <!-- Right Column Visual Mockup -->
+  <div class="right-col">
+    <div class="mockup-card">
+      <img src="demo-face.jpg" class="scanner-portrait" alt="Face Scan">
+
+      <div class="scan-reticle"></div>
+
+      <!-- Top HUD -->
+      <div class="hud-top-badge">
+        <div class="score-circle">78</div>
+        <div>
+          <div class="hud-text-title">Skin Health Index</div>
+          <div class="hud-text-sub">Combination • Balanced Barrier</div>
+        </div>
+      </div>
+
+      <!-- Floating Chips -->
+      <div class="chip-pore">🎯 Pores Detected: 68/100</div>
+      <div class="chip-barrier">✓ Barrier Synergy Verified</div>
+
+      <!-- Bottom HUD -->
+      <div class="hud-bottom-bar">
+        <div>
+          <div class="bar-tag">Budget Regimen Solved</div>
+          <div class="bar-price">Total: ₹958 <span style="font-size: 13px; font-weight: 500; color: #71717A;">/ ₹1,500 Cap</span></div>
+          <div class="bar-desc">Cleanser + Moisturiser + Sunscreen</div>
+        </div>
+        <div class="check-badge">Optimal</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

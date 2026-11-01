@@ -35,6 +35,11 @@ Skincare shopping is notoriously confusing. Consumers are bombarded by thousands
 
 <div align="center">
 
+### 🎬 Project Demo Walkthrough & Video Preview
+[![SKINMATE AI Video Walkthrough](assets/demo-video/youtube-thumbnail.png)](assets/demo-video/skinmate-ai-demo.mp4)
+
+*Full 2m 23s high-definition walkthrough demo with real-time screen recordings, synchronized voiceover narration, and feature deep-dives.*
+
 ### 🌟 Hero & Experience Overview (Light & Dark Modes)
 ![SKINMATE AI Hero Overview (Light Mode)](assets/screenshots/hero-preview.png)
 
