@@ -1,0 +1,34 @@
+{
+  "1_login": {
+    "durationSec": 13.992,
+    "durationMs": 13992
+  },
+  "2_darkmode": {
+    "durationSec": 18.48,
+    "durationMs": 18480
+  },
+  "3_scan": {
+    "durationSec": 22.104,
+    "durationMs": 22104
+  },
+  "4_dashboard": {
+    "durationSec": 19.008,
+    "durationMs": 19008
+  },
+  "5_routine": {
+    "durationSec": 20.856,
+    "durationMs": 20856
+  },
+  "6_marketplace": {
+    "durationSec": 15.072,
+    "durationMs": 15072
+  },
+  "7_chatbot": {
+    "durationSec": 22.896,
+    "durationMs": 22896
+  },
+  "8_outro": {
+    "durationSec": 9.84,
+    "durationMs": 9840
+  }
+}

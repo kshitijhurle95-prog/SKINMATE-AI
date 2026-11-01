@@ -33,11 +33,11 @@ export function ProductCard({
   return (
     <div
       onClick={() => onSelect && onSelect(product)}
-      className="group relative rounded-2xl border border-border-subtle bg-white p-4 shadow-card hover:shadow-hover hover:border-brand-sage-300 transition-all duration-300 flex flex-col justify-between cursor-pointer"
+      className="group relative rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 shadow-card hover:shadow-hover hover:border-emerald-500 transition-all duration-300 flex flex-col justify-between cursor-pointer"
     >
       <div>
         {/* Top Image Container */}
-        <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-surface-subtle mb-3.5">
+        <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-100 dark:bg-black mb-3.5">
           <Image
             src={product.image}
             alt={product.name}
@@ -47,7 +47,7 @@ export function ProductCard({
           />
 
           {/* Category Tag */}
-          <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[10px] uppercase font-bold tracking-wider bg-white/90 backdrop-blur-sm text-content-primary shadow-soft">
+          <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[10px] uppercase font-bold tracking-wider bg-black/80 dark:bg-black/90 backdrop-blur-sm text-white border border-white/20 shadow-soft">
             {product.category}
           </span>
 
@@ -55,7 +55,7 @@ export function ProductCard({
           <button
             onClick={handleToggleHeart}
             aria-label={isSaved ? "Remove from saved products" : "Save product"}
-            className="absolute top-2.5 right-2.5 h-8 w-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-content-muted hover:text-brand-terracotta-500 shadow-soft transition-colors"
+            className="absolute top-2.5 right-2.5 h-8 w-8 rounded-full bg-white/90 dark:bg-black/80 backdrop-blur-sm flex items-center justify-center text-slate-700 dark:text-white hover:text-emerald-500 border border-slate-200/80 dark:border-zinc-700 shadow-soft transition-colors"
           >
             <Heart
               className={`h-4 w-4 ${

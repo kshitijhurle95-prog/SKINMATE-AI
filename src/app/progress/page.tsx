@@ -106,24 +106,24 @@ export default function ProgressPage() {
               return (
                 <div
                   key={m.type}
-                  className="p-4 rounded-2xl bg-surface-subtle/70 border border-border-subtle/80 space-y-2"
+                  className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 space-y-2"
                 >
-                  <p className="text-xs font-semibold text-content-primary truncate">
+                  <p className="text-xs font-semibold text-slate-900 dark:text-white truncate">
                     {m.displayName}
                   </p>
                   <div className="flex items-baseline justify-between">
-                    <span className="text-xl font-bold text-content-primary">{m.score}</span>
+                    <span className="text-xl font-bold text-slate-900 dark:text-white">{m.score}</span>
                     <span
                       className={`text-xs font-bold ${
-                        delta >= 0 ? "text-emerald-600" : "text-brand-terracotta-600"
+                        delta >= 0 ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"
                       }`}
                     >
                       {delta >= 0 ? `+${delta}` : delta}
                     </span>
                   </div>
-                  <div className="h-1.5 w-full bg-border-subtle rounded-full overflow-hidden">
+                  <div className="h-1.5 w-full bg-slate-200 dark:bg-zinc-700 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-brand-sage-500 rounded-full"
+                      className="h-full bg-emerald-600 dark:bg-emerald-500 rounded-full"
                       style={{ width: `${m.score}%` }}
                     />
                   </div>
@@ -133,10 +133,10 @@ export default function ProgressPage() {
           </div>
 
           {/* Environmental Variance Note */}
-          <div className="p-4 rounded-2xl bg-surface-subtle/40 border border-border-subtle/60 text-xs text-content-faint leading-relaxed flex items-start gap-2">
-            <AlertCircle className="h-4 w-4 shrink-0 text-content-muted mt-0.5" />
+          <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 text-xs text-slate-600 dark:text-slate-300 leading-relaxed flex items-start gap-2">
+            <AlertCircle className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400 mt-0.5" />
             <span>
-              <strong>Scientific Note on Progress Tracking: </strong>
+              <strong className="text-slate-900 dark:text-white">Scientific Note on Progress Tracking: </strong>
               Observable differences in computer vision scores reflect surface image clarity and visible characteristics. Lighting, camera angles, seasonal weather, and sleep can naturally shift daily metric values and should not be viewed as clinical proof of product efficacy.
             </span>
           </div>
@@ -207,20 +207,20 @@ export default function ProgressPage() {
             {notes.map((note) => (
               <div
                 key={note.id}
-                className="p-5 rounded-2xl border border-border-subtle bg-white shadow-card space-y-2 hover:border-brand-sage-200 transition-colors"
+                className="p-5 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-card space-y-2 hover:border-emerald-400 transition-colors"
               >
                 <div className="flex items-center justify-between text-xs">
                   <div className="flex items-center gap-2">
                     {note.tags.map((t, i) => (
                       <span
                         key={i}
-                        className="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-brand-sage-50 text-brand-sage-700 border border-brand-sage-200"
+                        className="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40"
                       >
                         {t}
                       </span>
                     ))}
                   </div>
-                  <span className="text-content-faint">
+                  <span className="text-slate-400 dark:text-slate-400">
                     {new Date(note.date).toLocaleDateString("en-IN", {
                       day: "numeric",
                       month: "short",
@@ -229,7 +229,7 @@ export default function ProgressPage() {
                   </span>
                 </div>
 
-                <p className="text-xs sm:text-sm text-content-primary leading-relaxed whitespace-pre-line">
+                <p className="text-xs sm:text-sm text-slate-900 dark:text-white leading-relaxed whitespace-pre-line">
                   {note.content}
                 </p>
               </div>

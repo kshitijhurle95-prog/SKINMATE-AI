@@ -47,9 +47,7 @@ html.dark .bg-canvas-soft {
   color: #FFFFFF !important;
 }
 
-/* All text colors in dark mode: Pure White (No Grey Font) */
-html.dark,
-html.dark body,
+/* Base text color in dark mode */
 html.dark h1,
 html.dark h2,
 html.dark h3,
@@ -57,27 +55,23 @@ html.dark h4,
 html.dark h5,
 html.dark h6,
 html.dark p,
-html.dark span:not(.text-emerald-400):not(.text-emerald-500):not(.text-emerald-600):not(.text-white):not(.text-amber-500):not(.dark\:text-black):not(.dark\:text-slate-950),
 html.dark label,
 html.dark li,
-html.dark a:not(.bg-emerald-600):not(.dark\:bg-white):not(.dark\:text-black),
 html.dark .text-slate-900,
 html.dark .text-slate-800,
 html.dark .text-slate-700,
 html.dark .text-slate-600,
 html.dark .text-slate-500,
-html.dark .text-slate-400,
 html.dark .text-content-primary,
-html.dark .text-content-muted,
-html.dark .text-content-subtle,
-html.dark .text-content-faint {
+html.dark .text-content-muted {
   color: #FFFFFF !important;
 }
 
 /* Preserve black text on white active elements (e.g. Active Navbar Tab) */
 html.dark .dark\:text-black,
 html.dark .dark\:text-slate-950,
-html.dark [data-active="true"] {
+html.dark [data-active="true"],
+html.dark [data-active="true"] span {
   color: #000000 !important;
 }
 html.dark .dark\:bg-white {
@@ -85,7 +79,9 @@ html.dark .dark\:bg-white {
 }
 
 /* Card, Modals & Surface containers in dark mode */
-html.dark .bg-white {
+html.dark .bg-white,
+html.dark .bg-surface,
+html.dark .bg-surface-card {
   background-color: #0A0A0A !important;
   color: #FFFFFF !important;
   border-color: #27272A !important;
@@ -96,19 +92,21 @@ html.dark .bg-white\/90,
 html.dark .bg-white\/80 {
   background-color: rgba(10, 10, 10, 0.95) !important;
   color: #FFFFFF !important;
+  border-color: #27272A !important;
 }
 
 html.dark .bg-slate-50,
 html.dark .bg-slate-50\/70,
 html.dark .bg-slate-50\/90,
-html.dark .bg-slate-100 {
-  background-color: #050505 !important;
+html.dark .bg-slate-100,
+html.dark .bg-slate-200,
+html.dark .bg-brand-sand-50,
+html.dark .bg-brand-sand-100,
+html.dark .bg-surface-subtle,
+html.dark [class*="bg-surface-subtle"] {
+  background-color: #121214 !important;
   color: #FFFFFF !important;
   border-color: #27272A !important;
-}
-
-html.dark .bg-surface-subtle {
-  background-color: #121214 !important;
 }
 
 /* Borders in dark mode */
@@ -117,7 +115,10 @@ html.dark .border-slate-200\/80,
 html.dark .border-slate-200\/90,
 html.dark .border-slate-300,
 html.dark .border-slate-100,
-html.dark .border-border-subtle {
+html.dark .border-border-subtle,
+html.dark [class*="border-border-subtle"],
+html.dark .border-brand-sage-200,
+html.dark .border-brand-sage-300 {
   border-color: #27272A !important;
 }
 
@@ -130,27 +131,74 @@ html.dark textarea {
   border-color: #27272A !important;
 }
 
-/* Success Green & Accent Brand Colors in dark mode */
+/* =========================================================
+   BADGES & PILLS IN DARK MODE: SLEEK DARK ACCENTS
+   ========================================================= */
+
+/* Green & Sage Badges */
+html.dark .bg-emerald-50,
+html.dark .bg-emerald-100,
+html.dark .bg-brand-sage-50,
+html.dark .bg-brand-sage-100,
+html.dark [class*="bg-brand-sage-50"],
+html.dark [class*="bg-emerald-50"] {
+  background-color: rgba(34, 197, 94, 0.14) !important;
+  border-color: rgba(34, 197, 94, 0.35) !important;
+  color: #4ADE80 !important;
+}
+html.dark .bg-emerald-50 span,
+html.dark .bg-brand-sage-50 span,
+html.dark [class*="bg-emerald-50"] span,
+html.dark [class*="bg-brand-sage-50"] span {
+  color: #4ADE80 !important;
+}
+
+/* Amber Badges (e.g. Verified Dataset, Moderate Concern) */
+html.dark .bg-amber-50,
+html.dark .bg-amber-100,
+html.dark [class*="bg-amber-50"] {
+  background-color: rgba(245, 158, 11, 0.14) !important;
+  border-color: rgba(245, 158, 11, 0.35) !important;
+  color: #FBBF24 !important;
+}
+html.dark .bg-amber-50 span,
+html.dark [class*="bg-amber-50"] span {
+  color: #FBBF24 !important;
+}
+
+/* Blue Badges */
+html.dark .bg-blue-50,
+html.dark .bg-blue-100,
+html.dark [class*="bg-blue-50"] {
+  background-color: rgba(59, 130, 246, 0.14) !important;
+  border-color: rgba(59, 130, 246, 0.35) !important;
+  color: #60A5FA !important;
+}
+html.dark .bg-blue-50 span,
+html.dark [class*="bg-blue-50"] span {
+  color: #60A5FA !important;
+}
+
+/* Red / Terracotta Badges */
+html.dark .bg-red-50,
+html.dark .bg-red-100,
+html.dark .bg-brand-terracotta-50,
+html.dark [class*="bg-red-50"] {
+  background-color: rgba(239, 68, 68, 0.14) !important;
+  border-color: rgba(239, 68, 68, 0.35) !important;
+  color: #F87171 !important;
+}
+html.dark .bg-red-50 span,
+html.dark [class*="bg-red-50"] span {
+  color: #F87171 !important;
+}
+
+/* Brand Text Highlights in Dark Mode */
 html.dark .text-emerald-600,
 html.dark .text-emerald-500,
 html.dark .text-emerald-400 {
   color: #22C55E !important;
 }
-
-html.dark .bg-emerald-50,
-html.dark .bg-emerald-100 {
-  background-color: rgba(34, 197, 94, 0.12) !important;
-  border-color: rgba(34, 197, 94, 0.3) !important;
-  color: #22C55E !important;
-}
-
-html.dark .bg-blue-50,
-html.dark .bg-blue-100 {
-  background-color: rgba(37, 99, 235, 0.12) !important;
-  border-color: rgba(37, 99, 235, 0.3) !important;
-  color: #60A5FA !important;
-}
-
 html.dark .text-blue-600,
 html.dark .text-blue-500 {
   color: #60A5FA !important;

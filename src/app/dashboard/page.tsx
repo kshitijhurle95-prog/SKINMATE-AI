@@ -39,11 +39,11 @@ export default function DashboardPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-border-subtle/80">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs uppercase tracking-wider font-semibold text-brand-sage-700 bg-brand-sage-50 px-2.5 py-0.5 rounded-md border border-brand-sage-200">
+            <span className="text-xs uppercase tracking-wider font-semibold text-emerald-800 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-md border border-emerald-200 dark:border-emerald-800/40">
               Personal Skin Intelligence
             </span>
             {analysis.isDemoData && (
-              <span className="text-[10px] uppercase font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200">
+              <span className="text-[10px] uppercase font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 rounded-md border border-amber-200 dark:border-amber-800/40">
                 Verified Dataset
               </span>
             )}
@@ -122,21 +122,21 @@ export default function DashboardPage() {
       </div>
 
       {/* --- PERSONALISED INSIGHTS SUMMARY --- */}
-      <div className="rounded-3xl border border-brand-sage-200 bg-brand-sage-50/50 p-6 sm:p-8 space-y-4">
+      <div className="rounded-3xl border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900/60 p-6 sm:p-8 space-y-4">
         <div className="flex items-center gap-2">
-          <Sparkles className="h-5 w-5 text-brand-sage-600" />
-          <h2 className="text-lg font-bold text-content-primary">
+          <Sparkles className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+          <h2 className="text-lg font-bold text-slate-900 dark:text-white">
             Personalised Diagnostic Insights
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-content-muted leading-relaxed">
-          <div className="p-4 rounded-2xl bg-white border border-border-subtle/80 space-y-1.5 shadow-soft">
-            <span className="font-bold text-content-primary">Key Focus Areas:</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+          <div className="p-4 rounded-2xl bg-white dark:bg-black border border-slate-200/80 dark:border-zinc-800 space-y-1.5 shadow-soft">
+            <span className="font-bold text-slate-900 dark:text-white">Key Focus Areas:</span>
             {priorityConcerns.length > 0 ? (
               <p>
                 Your analysis indicates that{" "}
-                <span className="font-semibold text-brand-sage-800">
+                <span className="font-semibold text-emerald-600 dark:text-emerald-400">
                   {priorityConcerns.map((p) => p.displayName).join(" and ")}
                 </span>{" "}
                 are the primary visible characteristics to balance. Consider non-comedogenic hydration and mild exfoliants.
@@ -146,10 +146,10 @@ export default function DashboardPage() {
             )}
           </div>
 
-          <div className="p-4 rounded-2xl bg-white border border-border-subtle/80 space-y-1.5 shadow-soft">
-            <span className="font-bold text-content-primary">Budget-Conscious Recommendation:</span>
+          <div className="p-4 rounded-2xl bg-white dark:bg-black border border-slate-200/80 dark:border-zinc-800 space-y-1.5 shadow-soft">
+            <span className="font-bold text-slate-900 dark:text-white">Budget-Conscious Recommendation:</span>
             <p>
-              Based on your stated budget of <span className="font-semibold text-content-primary">₹{profile.budgetMax}</span>, our recommendation engine has solved for a 3-step routine prioritizing active barrier support without unnecessary product layering.
+              Based on your stated budget of <span className="font-semibold text-slate-900 dark:text-white">₹{profile.budgetMax}</span>, our recommendation engine has solved for a 3-step routine prioritizing active barrier support without unnecessary product layering.
             </p>
           </div>
         </div>

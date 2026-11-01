@@ -115,12 +115,12 @@ export function ChatDrawer({ isOpen, onClose }: ChatDrawerProps) {
   return (
     <div className="fixed inset-0 z-50 overflow-hidden bg-black/40 backdrop-blur-sm flex justify-end">
       {/* Drawer Container: Increased Width to max-w-2xl (672px) */}
-      <div className="relative w-full sm:max-w-xl md:max-w-2xl bg-slate-50/90 backdrop-blur-md h-full shadow-2xl border-l border-slate-200 flex flex-col justify-between animate-in slide-in-from-right duration-300">
+      <div className="relative w-full sm:max-w-xl md:max-w-2xl bg-slate-50/95 dark:bg-black/95 backdrop-blur-md h-full shadow-2xl border-l border-slate-200 dark:border-zinc-800 flex flex-col justify-between animate-in slide-in-from-right duration-300">
         
         {/* Top Header */}
-        <div className="px-5 py-4 border-b border-slate-200/90 bg-white flex items-center justify-between shadow-xs">
+        <div className="px-5 py-4 border-b border-slate-200/90 dark:border-zinc-800 bg-white dark:bg-black flex items-center justify-between shadow-xs">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-full border-[1.5px] border-black bg-transparent flex items-center justify-center p-1 shrink-0">
+            <div className="h-10 w-10 rounded-full border-[1.5px] border-black dark:border-white bg-transparent flex items-center justify-center p-1 shrink-0">
               <Image
                 src="/skinmate-logo.png"
                 alt="SKINMATE"
@@ -130,10 +130,10 @@ export function ChatDrawer({ isOpen, onClose }: ChatDrawerProps) {
               />
             </div>
             <div>
-              <h3 className="font-bold text-sm sm:text-base text-slate-900 leading-tight">
+              <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white leading-tight">
                 SKINMATE AI Assistant
               </h3>
-              <p className="text-xs text-emerald-700 font-semibold flex items-center gap-1.5 mt-0.5">
+              <p className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold flex items-center gap-1.5 mt-0.5">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Agentic Tool Caller Active</span>
               </p>
@@ -141,7 +141,7 @@ export function ChatDrawer({ isOpen, onClose }: ChatDrawerProps) {
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+            className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
             aria-label="Close chat"
           >
             <X className="h-5 w-5" />
@@ -155,7 +155,7 @@ export function ChatDrawer({ isOpen, onClose }: ChatDrawerProps) {
             if (msg.content === "__WELCOME_CARD__") {
               return (
                 <div key={msg.id} className="flex items-start gap-3">
-                  <div className="h-8 w-8 rounded-full border border-black bg-transparent flex items-center justify-center shrink-0 p-1 mt-1 shadow-2xs">
+                  <div className="h-8 w-8 rounded-full border border-black dark:border-white bg-transparent flex items-center justify-center shrink-0 p-1 mt-1 shadow-2xs">
                     <Image
                       src="/skinmate-logo.png"
                       alt="SKINMATE AI"
@@ -165,67 +165,67 @@ export function ChatDrawer({ isOpen, onClose }: ChatDrawerProps) {
                     />
                   </div>
 
-                  <div className="flex-1 rounded-2xl border border-emerald-100 bg-gradient-to-br from-white via-emerald-50/20 to-white p-5 sm:p-6 shadow-xs space-y-4">
+                  <div className="flex-1 rounded-2xl border border-emerald-100 dark:border-zinc-800 bg-gradient-to-br from-white via-emerald-50/20 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-black p-5 sm:p-6 shadow-xs space-y-4">
                     <div>
-                      <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                        Hello! I&apos;m your <span className="text-emerald-600 font-extrabold">SKINMATE AI</span> Skincare Concierge.
+                      <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug">
+                        Hello! I&apos;m your <span className="text-emerald-600 dark:text-emerald-400 font-extrabold">SKINMATE AI</span> Skincare Concierge.
                       </h4>
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-2">
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-2">
                         I can analyze your YouCam skin scan, calculate budget-friendly skincare routines, compare ingredients, and find affordable product swaps (under ₹1,500).
                       </p>
                     </div>
 
                     <div className="space-y-2.5 pt-1">
-                      <p className="text-xs font-bold text-slate-900 uppercase tracking-wide">
+                      <p className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wide">
                         What would you like to explore today?
                       </p>
 
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                         <button
                           onClick={() => handleSendMessage("Build my skincare routine")}
-                          className="p-3 rounded-xl bg-white border border-slate-200/90 hover:border-emerald-500 hover:shadow-xs transition-all text-left flex flex-col justify-between group"
+                          className="p-3 rounded-xl bg-white dark:bg-black border border-slate-200/90 dark:border-zinc-800 hover:border-emerald-500 hover:shadow-xs transition-all text-left flex flex-col justify-between group"
                         >
                           <div className="flex items-center justify-between mb-1.5">
-                            <span className="p-1 rounded-md bg-emerald-50 text-emerald-600">
+                            <span className="p-1 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
                               <Droplets className="h-4 w-4" />
                             </span>
                             <ArrowRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-all" />
                           </div>
                           <div>
-                            <p className="font-bold text-xs text-slate-900">Build my routine</p>
-                            <p className="text-[10px] text-slate-500 mt-0.5">Get a personalized skincare routine</p>
+                            <p className="font-bold text-xs text-slate-900 dark:text-white">Build my routine</p>
+                            <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Get a personalized skincare routine</p>
                           </div>
                         </button>
 
                         <button
                           onClick={() => handleSendMessage("Analyze my routine ingredients")}
-                          className="p-3 rounded-xl bg-white border border-slate-200/90 hover:border-emerald-500 hover:shadow-xs transition-all text-left flex flex-col justify-between group"
+                          className="p-3 rounded-xl bg-white dark:bg-black border border-slate-200/90 dark:border-zinc-800 hover:border-emerald-500 hover:shadow-xs transition-all text-left flex flex-col justify-between group"
                         >
                           <div className="flex items-center justify-between mb-1.5">
-                            <span className="p-1 rounded-md bg-emerald-50 text-emerald-600">
+                            <span className="p-1 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
                               <FlaskConical className="h-4 w-4" />
                             </span>
                             <ArrowRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-all" />
                           </div>
                           <div>
-                            <p className="font-bold text-xs text-slate-900">Analyze ingredients</p>
-                            <p className="text-[10px] text-slate-500 mt-0.5">Understand what&apos;s in your products</p>
+                            <p className="font-bold text-xs text-slate-900 dark:text-white">Analyze ingredients</p>
+                            <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Understand what&apos;s in your products</p>
                           </div>
                         </button>
 
                         <button
                           onClick={() => handleSendMessage("Find budget swaps under ₹1,500")}
-                          className="p-3 rounded-xl bg-white border border-slate-200/90 hover:border-emerald-500 hover:shadow-xs transition-all text-left flex flex-col justify-between group"
+                          className="p-3 rounded-xl bg-white dark:bg-black border border-slate-200/90 dark:border-zinc-800 hover:border-emerald-500 hover:shadow-xs transition-all text-left flex flex-col justify-between group"
                         >
                           <div className="flex items-center justify-between mb-1.5">
-                            <span className="p-1 rounded-md bg-emerald-50 text-emerald-600">
+                            <span className="p-1 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
                               <Tag className="h-4 w-4" />
                             </span>
                             <ArrowRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-all" />
                           </div>
                           <div>
-                            <p className="font-bold text-xs text-slate-900">Find budget swaps</p>
-                            <p className="text-[10px] text-slate-500 mt-0.5">Get effective alternatives (under ₹1,500)</p>
+                            <p className="font-bold text-xs text-slate-900 dark:text-white">Find budget swaps</p>
+                            <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Get effective alternatives (under ₹1,500)</p>
                           </div>
                         </button>
                       </div>
@@ -242,7 +242,7 @@ export function ChatDrawer({ isOpen, onClose }: ChatDrawerProps) {
                   <div className="max-w-[80%] rounded-2xl rounded-tr-xs bg-emerald-600 text-white px-4 py-2.5 text-sm font-medium shadow-xs">
                     {msg.content}
                   </div>
-                  <div className="h-8 w-8 rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                  <div className="h-8 w-8 rounded-full border border-emerald-200 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                     <User className="h-4 w-4" />
                   </div>
                 </div>
@@ -252,7 +252,7 @@ export function ChatDrawer({ isOpen, onClose }: ChatDrawerProps) {
             // Normal Assistant Chat Agent Message
             return (
               <div key={msg.id} className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-full border border-black bg-transparent flex items-center justify-center shrink-0 p-1 mt-1 shadow-2xs">
+                <div className="h-8 w-8 rounded-full border border-black dark:border-white bg-transparent flex items-center justify-center shrink-0 p-1 mt-1 shadow-2xs">
                   <Image
                     src="/skinmate-logo.png"
                     alt="SKINMATE AI"
@@ -262,11 +262,11 @@ export function ChatDrawer({ isOpen, onClose }: ChatDrawerProps) {
                   />
                 </div>
 
-                <div className="flex-1 max-w-[88%] rounded-2xl rounded-tl-xs border border-slate-200 bg-white p-4 sm:p-5 shadow-xs space-y-3">
+                <div className="flex-1 max-w-[88%] rounded-2xl rounded-tl-xs border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 sm:p-5 shadow-xs space-y-3">
                   {/* Tool Badge Indicator */}
                   {msg.toolInvoked && (
-                    <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-wider uppercase text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200 w-fit">
-                      <Wrench className="h-3 w-3 text-emerald-600" />
+                    <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-wider uppercase text-emerald-800 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-md border border-emerald-200 dark:border-emerald-800/50 w-fit">
+                      <Wrench className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
                       <span>Action Tool: {msg.toolInvoked.replace(/_/g, " ")}</span>
                     </div>
                   )}
@@ -276,25 +276,25 @@ export function ChatDrawer({ isOpen, onClose }: ChatDrawerProps) {
 
                   {/* Interactive Action Card if solver proposed a routine update */}
                   {msg.actionCard && (
-                    <div className="mt-3 p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+                    <div className="mt-3 p-4 rounded-xl bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 space-y-2.5">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold text-xs text-emerald-800">
+                        <span className="font-bold text-xs text-emerald-800 dark:text-emerald-400">
                           {msg.actionCard.title}
                         </span>
                         {msg.actionCard.priceDifferenceINR && (
-                          <span className="text-[11px] font-bold text-emerald-600 bg-emerald-100/70 px-2 py-0.5 rounded-md">
+                          <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-100/70 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md">
                             Save {formatPriceINR(Math.abs(msg.actionCard.priceDifferenceINR))}
                           </span>
                         )}
                       </div>
-                      <p className="text-xs text-slate-600 leading-relaxed">
+                      <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                         {msg.actionCard.description}
                       </p>
 
                       <div className="pt-2 flex items-center justify-end">
                         {actionConfirmed[msg.id] ? (
-                          <span className="text-xs font-semibold text-emerald-700 flex items-center gap-1">
-                            <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                          <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 flex items-center gap-1">
+                            <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                             <span>Approved & Routine Updated</span>
                           </span>
                         ) : (
@@ -324,7 +324,7 @@ export function ChatDrawer({ isOpen, onClose }: ChatDrawerProps) {
         </div>
 
         {/* Bottom Suggested Chips & Input Form */}
-        <div className="p-4 sm:p-5 border-t border-slate-200 bg-white space-y-3.5 shadow-sm">
+        <div className="p-4 sm:p-5 border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-black space-y-3.5 shadow-sm">
           {/* Quick Prompt Chips */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs no-scrollbar">
             {SUGGESTED_CHIPS.map((chip, i) => {
@@ -334,9 +334,9 @@ export function ChatDrawer({ isOpen, onClose }: ChatDrawerProps) {
                   key={i}
                   onClick={() => handleSendMessage(chip.prompt)}
                   disabled={isLoading}
-                  className="whitespace-nowrap px-3 py-1.5 rounded-full bg-emerald-50/80 border border-emerald-200/90 text-emerald-800 hover:bg-emerald-100 hover:border-emerald-300 transition-colors flex items-center gap-1.5 shrink-0 font-medium"
+                  className="whitespace-nowrap px-3 py-1.5 rounded-full bg-emerald-50/80 dark:bg-zinc-900 border border-emerald-200/90 dark:border-zinc-800 text-emerald-800 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-zinc-800 hover:border-emerald-300 dark:hover:border-emerald-600 transition-colors flex items-center gap-1.5 shrink-0 font-medium"
                 >
-                  <Icon className="h-3 w-3 text-emerald-600" />
+                  <Icon className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
                   <span>{chip.label}</span>
                 </button>
               );
@@ -357,7 +357,7 @@ export function ChatDrawer({ isOpen, onClose }: ChatDrawerProps) {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               disabled={isLoading}
-              className="w-full h-12 pl-5 pr-14 rounded-full border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 shadow-xs transition-all"
+              className="w-full h-12 pl-5 pr-14 rounded-full border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-hidden focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 shadow-xs transition-all"
             />
             <button
               type="submit"

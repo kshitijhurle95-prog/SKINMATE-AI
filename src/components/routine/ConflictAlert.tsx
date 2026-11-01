@@ -5,10 +5,10 @@ import { IngredientConflict } from "@/types/routine";
 export function ConflictAlert({ conflicts }: { conflicts: IngredientConflict[] }) {
   if (!conflicts || conflicts.length === 0) {
     return (
-      <div className="p-4 rounded-2xl bg-brand-sage-50/60 border border-brand-sage-200/80 flex items-start gap-3 text-xs text-brand-sage-800">
-        <ShieldCheck className="h-5 w-5 text-brand-sage-600 shrink-0 mt-0.5" />
+      <div className="p-4 rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 flex items-start gap-3 text-xs text-emerald-800 dark:text-emerald-300">
+        <ShieldCheck className="h-5 w-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
         <div>
-          <span className="font-semibold text-brand-sage-900">Barrier Synergy Verified: </span>
+          <span className="font-semibold text-emerald-900 dark:text-emerald-300">Barrier Synergy Verified: </span>
           All selected active ingredients are cosmically compatible. No harmful ingredient clashes detected across your morning and evening steps.
         </div>
       </div>

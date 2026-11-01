@@ -24,16 +24,16 @@ export function MaskOverlayViewer({
   const selectedMetric = metrics.find((m) => m.type === activeMaskKey);
 
   return (
-    <div className="rounded-3xl border border-border-subtle bg-surface p-6 shadow-card space-y-5">
+    <div className="rounded-3xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 shadow-card space-y-5 transition-colors">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div className="flex items-center gap-2">
-            <Layers className="h-5 w-5 text-brand-sage-500" />
-            <h3 className="font-semibold text-lg text-content-primary">
+            <Layers className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+            <h3 className="font-semibold text-lg text-slate-900 dark:text-white">
               AI Concern Heatmap & Mask Visualizer
             </h3>
           </div>
-          <p className="text-xs text-content-muted mt-1">
+          <p className="text-xs text-slate-600 dark:text-slate-300 mt-1">
             Toggle YouCam detection masks over your scan to view localized concern clusters.
           </p>
         </div>
@@ -41,16 +41,16 @@ export function MaskOverlayViewer({
         {/* Toggle On/Off Button */}
         <button
           onClick={() => setShowOverlay(!showOverlay)}
-          className="self-start sm:self-auto inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-border-subtle text-xs font-medium hover:bg-surface-subtle transition-colors"
+          className="self-start sm:self-auto inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 text-xs font-medium text-slate-700 dark:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
         >
           {showOverlay ? (
             <>
-              <Eye className="h-4 w-4 text-brand-sage-500" />
+              <Eye className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
               <span>Mask Layer Visible</span>
             </>
           ) : (
             <>
-              <EyeOff className="h-4 w-4 text-content-faint" />
+              <EyeOff className="h-4 w-4 text-slate-400" />
               <span>Base Photo Only</span>
             </>
           )}
@@ -70,8 +70,8 @@ export function MaskOverlayViewer({
               }}
               className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${
                 isSelected
-                  ? "bg-brand-sage-500 text-white shadow-soft"
-                  : "bg-surface-subtle text-content-muted hover:text-content-primary hover:bg-brand-sand-100"
+                  ? "bg-emerald-600 dark:bg-emerald-500 text-white shadow-soft font-semibold"
+                  : "bg-slate-100 dark:bg-black text-slate-700 dark:text-white border border-slate-200 dark:border-zinc-800 hover:border-emerald-500 hover:bg-slate-200/60 dark:hover:bg-zinc-800"
               }`}
             >
               {m.displayName}
@@ -81,7 +81,7 @@ export function MaskOverlayViewer({
       </div>
 
       {/* Canvas / Image Stack Container */}
-      <div className="relative aspect-[4/3] w-full max-w-lg mx-auto rounded-2xl overflow-hidden bg-black/5 border border-border-subtle shadow-inner">
+      <div className="relative aspect-[4/3] w-full max-w-lg mx-auto rounded-2xl overflow-hidden bg-black/5 dark:bg-black/60 border border-slate-200 dark:border-zinc-800 shadow-inner">
         {/* Base Facial Photo */}
         <Image
           src={baseImageUrl}

@@ -13,7 +13,7 @@
 **Understand Your Skin. Shop Smarter. Care Better.**  
 *Built for the YouCam API Skin AI & eCommerce VTO Hackathon by Perfect Corp.*
 
-[Live Demo](http://localhost:3000) • [Explore Features](#-key-features) • [Architecture](#-architecture--file-layout) • [Getting Started](#-quickstart--installation)
+[Live Demo](http://localhost:3000) • [Watch Video Demo](assets/demo-video/skinmate-ai-demo.mp4) • [Explore Features](#-key-features) • [Architecture](#-architecture--file-layout) • [Getting Started](#-quickstart--installation)
 
 ---
 

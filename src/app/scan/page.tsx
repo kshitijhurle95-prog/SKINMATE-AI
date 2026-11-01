@@ -187,15 +187,15 @@ export default function ScanPage() {
           </div>
 
           {/* Quick-Test Presets for Hackathon Judges */}
-          <div className="p-6 rounded-3xl bg-surface-subtle/70 border border-border-subtle space-y-4">
+          <div className="p-6 rounded-3xl bg-slate-50 dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Sparkles className="h-4 w-4 text-brand-sage-500" />
-                <h4 className="font-semibold text-xs text-content-primary uppercase tracking-wider">
+                <Sparkles className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                <h4 className="font-semibold text-xs text-slate-900 dark:text-white uppercase tracking-wider">
                   Hackathon Judge Presets (Instant 1-Click Evaluation)
                 </h4>
               </div>
-              <span className="text-[11px] text-content-muted">No webcam required</span>
+              <span className="text-[11px] text-slate-500 dark:text-slate-400">No webcam required</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -203,9 +203,9 @@ export default function ScanPage() {
                 <button
                   key={preset.id}
                   onClick={() => handleSelectPreset(preset.url)}
-                  className="p-3 rounded-2xl border border-border-subtle bg-white hover:border-brand-sage-400 hover:shadow-soft transition-all text-left flex items-center gap-3 group"
+                  className="p-3 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-black hover:border-emerald-500 hover:shadow-soft transition-all text-left flex items-center gap-3 group"
                 >
-                  <div className="relative h-12 w-12 rounded-xl overflow-hidden shrink-0 border border-border-subtle">
+                  <div className="relative h-12 w-12 rounded-xl overflow-hidden shrink-0 border border-slate-200 dark:border-zinc-700">
                     <Image
                       src={preset.url}
                       alt={preset.label}
@@ -215,8 +215,8 @@ export default function ScanPage() {
                     />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs font-bold text-content-primary truncate">{preset.label}</p>
-                    <p className="text-[10px] text-content-muted truncate">{preset.desc}</p>
+                    <p className="text-xs font-bold text-slate-900 dark:text-white truncate">{preset.label}</p>
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate">{preset.desc}</p>
                   </div>
                 </button>
               ))}

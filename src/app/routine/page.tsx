@@ -86,17 +86,17 @@ export default function RoutinePage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-border-subtle/80">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs uppercase tracking-wider font-semibold text-brand-sage-700 bg-brand-sage-50 px-2.5 py-0.5 rounded-md border border-brand-sage-200">
+            <span className="text-xs uppercase tracking-wider font-semibold text-emerald-800 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-md border border-emerald-200 dark:border-emerald-800/40">
               Personalized Regimen
             </span>
-            <span className="text-xs text-content-faint">
+            <span className="text-xs text-slate-500 dark:text-slate-400">
               Updated {new Date(routine.updatedAt).toLocaleDateString()}
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-content-primary">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             {routine.name}
           </h1>
-          <p className="text-xs sm:text-sm text-content-muted mt-1">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
             Minimal, effective skincare structured around your diagnostic skin analysis and budget ceiling.
           </p>
         </div>
@@ -115,20 +115,20 @@ export default function RoutinePage() {
       </div>
 
       {/* --- BUDGET OPTIMIZER CALLOUT BAR --- */}
-      <div className="rounded-2xl border border-border-subtle bg-white p-5 shadow-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 shadow-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl bg-brand-sand-100 flex items-center justify-center text-brand-sage-700 font-bold">
+          <div className="h-10 w-10 rounded-xl bg-slate-100 dark:bg-black flex items-center justify-center text-emerald-600 dark:text-emerald-400 font-bold">
             ₹
           </div>
           <div>
-            <span className="text-[11px] text-content-faint uppercase font-bold tracking-wider">
+            <span className="text-[11px] text-slate-400 uppercase font-bold tracking-wider">
               Combinatorial Total Cost
             </span>
             <div className="flex items-baseline gap-2">
-              <span className="text-xl font-bold text-content-primary">
+              <span className="text-xl font-bold text-slate-900 dark:text-white">
                 {formatPriceINR(routine.totalPriceINR)}
               </span>
-              <span className="text-xs text-content-muted">
+              <span className="text-xs text-slate-500 dark:text-slate-400">
                 / {formatPriceINR(routine.budgetLimitINR)} Budget
               </span>
             </div>
@@ -136,11 +136,11 @@ export default function RoutinePage() {
         </div>
 
         {budgetSavings >= 0 ? (
-          <div className="px-3.5 py-1.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold">
+          <div className="px-3.5 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/40 text-emerald-800 dark:text-emerald-400 text-xs font-semibold">
             ✨ {formatPriceINR(budgetSavings)} within your budget cap!
           </div>
         ) : (
-          <div className="px-3.5 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold">
+          <div className="px-3.5 py-1.5 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/40 text-amber-800 dark:text-amber-400 text-xs font-semibold">
             ⚠️ {formatPriceINR(Math.abs(budgetSavings))} above budget. Swap a product below to save.
           </div>
         )}
@@ -151,13 +151,13 @@ export default function RoutinePage() {
 
       {/* --- TIME OF DAY TABS --- */}
       <div className="flex items-center justify-between gap-4">
-        <div className="flex items-center gap-2 p-1 rounded-2xl bg-surface-subtle border border-border-subtle">
+        <div className="flex items-center gap-2 p-1 rounded-2xl bg-slate-100 dark:bg-black border border-slate-200 dark:border-zinc-800">
           <button
             onClick={() => setActiveTab("morning")}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
               activeTab === "morning"
-                ? "bg-white text-brand-sage-700 shadow-soft"
-                : "text-content-muted hover:text-content-primary"
+                ? "bg-white dark:bg-zinc-900 text-slate-900 dark:text-white shadow-soft font-bold"
+                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
             <Sun className="h-4 w-4 text-amber-500" />
@@ -168,11 +168,11 @@ export default function RoutinePage() {
             onClick={() => setActiveTab("evening")}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
               activeTab === "evening"
-                ? "bg-white text-brand-sage-700 shadow-soft"
-                : "text-content-muted hover:text-content-primary"
+                ? "bg-white dark:bg-zinc-900 text-slate-900 dark:text-white shadow-soft font-bold"
+                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
-            <Moon className="h-4 w-4 text-indigo-500" />
+            <Moon className="h-4 w-4 text-blue-500" />
             <span>Evening Regimen ({routine.eveningSteps.length} Steps)</span>
           </button>
         </div>
