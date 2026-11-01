@@ -23,9 +23,9 @@ export function Logo({
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      {/* Circular rounded container with black border and transparent bg */}
+      {/* Circular rounded container with border and transparent bg */}
       <div
-        className={`relative ${dimensions.box} rounded-full ${dimensions.border} border-black bg-transparent flex items-center justify-center p-1 shrink-0 transition-transform group-hover:scale-105`}
+        className={`relative ${dimensions.box} rounded-full ${dimensions.border} border-black dark:border-white bg-transparent flex items-center justify-center p-1 shrink-0 transition-transform group-hover:scale-105`}
       >
         <Image
           src="/skinmate-logo.png"
@@ -38,7 +38,7 @@ export function Logo({
       </div>
       {showText && (
         <div className={`flex items-center gap-1.5 ${textClassName}`}>
-          <span className={`font-sans font-bold ${dimensions.title} tracking-tight text-black`}>
+          <span className={`font-sans font-bold ${dimensions.title} tracking-tight text-black dark:text-white transition-colors duration-200`}>
             SKINMATE
           </span>
           <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-emerald-600 text-white font-sans uppercase font-bold tracking-wider">

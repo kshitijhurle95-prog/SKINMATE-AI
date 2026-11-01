@@ -35,8 +35,10 @@ Skincare shopping is notoriously confusing. Consumers are bombarded by thousands
 
 <div align="center">
 
-### 🌟 Hero & Experience Overview
-![SKINMATE AI Hero Overview](assets/screenshots/hero-preview.png)
+### 🌟 Hero & Experience Overview (Light & Dark Modes)
+![SKINMATE AI Hero Overview (Light Mode)](assets/screenshots/hero-preview.png)
+
+![SKINMATE AI Obsidian Dark Mode](assets/screenshots/dark-preview.png)
 
 ### 📊 Personal Skin Intelligence Dashboard
 ![Skin Diagnostic Radial & Heatmap Overlays](assets/screenshots/dashboard-preview.png)

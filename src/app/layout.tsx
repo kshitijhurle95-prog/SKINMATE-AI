@@ -29,11 +29,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-canvas text-content-primary antialiased selection:bg-brand-sage-100 selection:text-brand-sage-800">
+      <body className="min-h-screen flex flex-col bg-white dark:bg-black text-slate-900 dark:text-white antialiased selection:bg-emerald-100 selection:text-emerald-800 transition-colors duration-300">
         {/* Accessible Skip Link */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-brand-sage-700 focus:rounded-xl focus:shadow-lg focus:border focus:border-border-subtle"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-emerald-700 focus:rounded-xl focus:shadow-lg focus:border focus:border-slate-200"
         >
           Skip to main content
         </a>
@@ -42,7 +42,7 @@ export default function RootLayout({
         <Navbar onOpenChat={() => setChatOpen(true)} />
 
         {/* Main Content Area */}
-        <main id="main-content" className="flex-1">
+        <main id="main-content" className="flex-1 bg-white dark:bg-black transition-colors duration-300">
           {children}
         </main>
 

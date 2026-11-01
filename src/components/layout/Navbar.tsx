@@ -23,17 +23,17 @@ export function Navbar({ onOpenChat }: { onOpenChat?: () => void }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 shadow-2xs transition-colors duration-300">
+    <header className="sticky top-0 z-40 w-full bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-slate-200/80 dark:border-zinc-800 shadow-2xs transition-colors duration-300">
       {/* 100% Width Container */}
-      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 h-20 flex items-center justify-between gap-4">
+      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 h-20 sm:h-22 flex items-center justify-between gap-4">
         
-        {/* Left: Brand Logo with Circular Black Border & Transparent Emblem */}
+        {/* Left: Brand Logo with Circular Border & Transparent Emblem */}
         <Link href="/" className="group shrink-0">
           <Logo size="md" />
         </Link>
 
-        {/* Center: Bigger, Spacious Floating Pill Navbar with Home + Dashboard & Fully Rounded Buttons */}
-        <nav className="hidden xl:flex items-center gap-1.5 bg-white dark:bg-slate-900/90 p-1.5 rounded-full border border-slate-200/90 dark:border-slate-800 shadow-sm shrink-0">
+        {/* Center: Wider, Spacious Floating Pill Navbar with Home + Dashboard & Fully Rounded Buttons */}
+        <nav className="hidden lg:flex items-center gap-2 lg:gap-3 bg-white/95 dark:bg-zinc-900/90 px-3 py-2 rounded-full border border-slate-200/90 dark:border-zinc-800 shadow-md shrink-0 transition-colors duration-200">
           {NAV_LINKS.map((link) => {
             const Icon = link.icon;
             const isActive = pathname === link.href;
@@ -41,15 +41,16 @@ export function Navbar({ onOpenChat }: { onOpenChat?: () => void }) {
               <Link
                 key={link.href}
                 href={link.href}
+                data-active={isActive ? "true" : undefined}
                 className={cn(
-                  "flex items-center gap-2.5 px-4.5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 whitespace-nowrap",
+                  "flex items-center gap-2.5 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 whitespace-nowrap",
                   isActive
-                    ? "bg-slate-950 dark:bg-white text-white dark:text-slate-950 shadow-sm font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80 font-medium"
+                    ? "bg-black dark:bg-white text-white dark:text-black shadow-md font-bold px-6 py-2.5"
+                    : "text-slate-700 dark:text-white hover:text-black dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 font-medium"
                 )}
               >
-                <Icon className={cn("h-4.5 w-4.5 shrink-0", isActive ? "text-white dark:text-slate-950" : "text-slate-500 dark:text-slate-400")} />
-                <span>{link.label}</span>
+                <Icon className={cn("h-4.5 w-4.5 shrink-0", isActive ? "text-white dark:text-black" : "text-slate-600 dark:text-white")} />
+                <span className={isActive ? "text-white dark:text-black" : "text-slate-700 dark:text-white"}>{link.label}</span>
               </Link>
             );
           })}
@@ -78,13 +79,13 @@ export function Navbar({ onOpenChat }: { onOpenChat?: () => void }) {
           )}
 
           {/* Connected Capsule: Dark/Light Mode Animated Toggle + Portrait Avatar */}
-          <div className="flex items-center gap-2 bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-full p-1 pl-1.5 shadow-sm">
+          <div className="flex items-center gap-2 bg-white dark:bg-zinc-900 border border-slate-200/90 dark:border-zinc-800 rounded-full p-1 pl-2 shadow-sm">
             <ThemeToggle />
 
             <Link
               href="/profile"
               aria-label="Profile and Settings"
-              className="relative h-9 w-9 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700 hover:ring-2 hover:ring-emerald-500 transition-all shrink-0"
+              className="relative h-9 w-9 rounded-full overflow-hidden border border-slate-200 dark:border-zinc-700 hover:ring-2 hover:ring-emerald-500 transition-all shrink-0"
             >
               <Image
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
@@ -98,7 +99,7 @@ export function Navbar({ onOpenChat }: { onOpenChat?: () => void }) {
         </div>
 
         {/* Mobile menu trigger */}
-        <div className="flex xl:hidden items-center gap-2">
+        <div className="flex lg:hidden items-center gap-2">
           <ThemeToggle />
           {onOpenChat && (
             <button
@@ -112,7 +113,7 @@ export function Navbar({ onOpenChat }: { onOpenChat?: () => void }) {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
-            className="p-2.5 rounded-full text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700"
+            className="p-2.5 rounded-full text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 border border-slate-200 dark:border-zinc-700"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
